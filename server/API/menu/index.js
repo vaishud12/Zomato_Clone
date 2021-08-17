@@ -43,3 +43,4 @@ Router.get("/image/:_id",async (req, res) => {
     }
 });
 
+export default Router;
