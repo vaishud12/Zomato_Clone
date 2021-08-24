@@ -2,7 +2,7 @@ import React from "react";
 
 import { FaUserAlt } from "react-icons/fa";
 import { HiLocationMarker } from "react-icons/hi";
-import { IoMdArrowDropdown, IoMdArrowDropup } from "react-icons/io";
+import { IoMdArrowDropdown } from "react-icons/io";
 import { RiSearch2Line } from "react-icons/ri";
 
 const MobileNav = () => {
