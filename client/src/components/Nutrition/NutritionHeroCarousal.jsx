@@ -5,7 +5,7 @@ import Slider from "react-slick";
 import NutritionHeroCarousalCard from "./NutritionHeroCarousalCard";
 import { NextArrow, PrevArrow } from "../CarousalArrow";
 const NutritionCarousal = () => {
-  const [heroBanners, setHeroBanners] = useState([
+  const [heroBanners,] = useState([
     "https://b.zmtcdn.com/web/nutrition/assets/47fb421f35ca12ad3111e3d99d1737571620108828.png",
     "https://b.zmtcdn.com/web/nutrition/assets/0a8f2dad65904b89178905213efe886c1620108711.png",
     "https://b.zmtcdn.com/web/nutrition/assets/f8da550c375c3bec2f6ba341336324561620108741.png",

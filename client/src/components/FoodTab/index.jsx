@@ -7,7 +7,7 @@ import classnames from "classnames";
 
 
 const MobileTabs = () => {
-  const [allTypes, setAllTypes] = useState([
+  const [allTypes, ] = useState([
     {
       id: "delivery",
       icon: <RiShoppingBag3Line />,
@@ -60,7 +60,7 @@ const MobileTabs = () => {
   };
   
   const LargeTabs = () => {
-    const [allTypes, setAllTypes] = useState([
+    const [allTypes, ] = useState([
       {
         id: "delivery",
         imageDefault:
