@@ -11,7 +11,7 @@ const ImageGrid = (props) => {
           className="w-full h-full object-cover rounded-lg "
         />
       </div>
-      <div className="hidden w-full h-96 md:flex gap-2">
+      <div className="hidden w-9/6 h-96 md:flex gap-2">
         <div className="w-full h-full overflow-hidden">
           <img
             src={props.images[0]}

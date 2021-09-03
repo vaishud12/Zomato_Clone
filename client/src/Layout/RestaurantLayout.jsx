@@ -1,12 +1,18 @@
 import React from "react";
+import { TiStarOutline } from "react-icons/ti";
+import { RiDirectionLine, RiShareForwardLine } from "react-icons/ri";
+import { BiBookmarkPlus } from "react-icons/bi";
 
 //components
 import RestaurantNavbar from "../components/Navbar/restaurantNavbar";
 import ImageGrid from "../components/restaurant/ImageGrid";
+import RestaurantInfo from "../components/restaurant/Restaurantinfo";
+import InfoButtons from "../components/restaurant/infoButton";
 
 const RestaurantLayout = () => {
     return (
         <>
+            {" "}
             <RestaurantNavbar />
             <div classname="container mx-auto px=4 lg:px=20">
                 <ImageGrid
@@ -18,8 +24,30 @@ const RestaurantLayout = () => {
                       
                     ]}
                 />
+                <RestaurantInfo
+                    name="Mumbai Xpress"
+                    restaurantRating="3.5"
+                    deliveryRating="3.2"
+                    cuisine="North Indian, Fast Food, Chinese, Street Food"
+                    address="Basavanagundi, banglore"
+                />
+                <div className="my-4 flex flex-wrap gap-3">
+                    <InfoButtons isActive>
+                        <TiStarOutline /> Add Review
+                    </InfoButtons>
+                    <InfoButtons>
+                        <RiDirectionLine /> Direction
+                    </InfoButtons>
+                    <InfoButtons>
+                        <BiBookmarkPlus /> Bookmark
+                    </InfoButtons>
+                    <InfoButtons>
+                        <RiShareForwardLine /> Share
+                    </InfoButtons>
+                </div>
                 
             </div>
+            
         </>
     );
 };
