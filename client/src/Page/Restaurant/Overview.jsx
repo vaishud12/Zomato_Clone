@@ -9,6 +9,7 @@ import MenuCollection from "../../components/restaurant/MenuCollection";
 import MenuSimilarRestaurantcard from "../../components/restaurant/MenuSimilarRestaurantcard";
 import { NextArrow, PrevArrow } from "../../components/CarousalArrow";
 import ReviewCard from "../../components/restaurant/Reviews/reviewCard";
+import Mapview from "../../components/restaurant/Mapview";
 
 const Overview = () => {
   const { id } = useParams();
@@ -22,6 +23,32 @@ const Overview = () => {
     initialSlide: 0,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
 
   const ratingChanged = (newRating) => {
@@ -43,11 +70,11 @@ const Overview = () => {
               </span>
             </Link>
           </div>
-          <div className="flex flex-wrap gap-3">\
+          <div className="flex flex-wrap gap-3">
             <MenuCollection
               menuTitle="Menu"
               pages="3"
-              image="https://b.zmtcdn.com/data/menus/244/18618244/bfcfa161811970297b5d210650a4401f.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A"
+              image="https://b.zmtcdn.com/data/menus/428/18582428/93084de4c642df3dec0b5b4fdccefaad.jpg?fit=around%7C200%3A200crop=200%3A200%3B%2A%2C%2A"
             />
           </div>
           <h4 className="text-lg font-medium my-4">Cuisines</h4>
@@ -108,29 +135,39 @@ const Overview = () => {
             <h4 className="text-lg font-medium">
               Rate your delivery experience
             </h4>
-            <ReactStars
-              count={5}
-              onChange={ratingChanged}
-              size={24}
-              activeColor="#ffd700"
+            <div>
+              <ReactStars
+                count={5}
+                onChange={ratingChanged}
+                size={24}
+                activeColor="#ffd700"
+              />
+            </div>
+          </div>
+          <div className="my-4 w-full md:hidden flex flex-col gap-4">
+            <Mapview 
+              title="Mumbai Xpress"
+              phno="+918805270556"
+              mapLocation={[12.988134202889283, 77.59405893120281]}
+              address="15, Sigma Central Mall, Vasanth Nagar, Cuminingham Road, Banglore"
             />
           </div>
-        </div>
-        <div className="my-4 flex flex-col gap-4">
-          <ReviewCard />
-          <ReviewCard />
-          <ReviewCard />
-        </div>
-      
+          <div className="my-4 flex flex-col gap-4">
+            <ReviewCard />
+            <ReviewCard />
+            <ReviewCard />
+          </div>
+        </div>      
         <aside
           style={{ height: "fit-content" }}
           className="hidden md:flex md:w-4/12 sticky rounded-xl top-2 bg-white p-3 shadow-md flex flex-col gap-4"
         >
-          <div>
-            <h4 className="text-xl font-medium">call</h4>
-            <h5 className="text-zomato-400 font-medium">918805270556</h5>
-          </div>
-          <h4 className="text-xl font-medium">Direction</h4>
+          <Mapview 
+            title="Mumbai Xpress"
+            phno="+918805270556"
+            mapLocation={[12.988134202889283, 77.59405893120281]}
+            address="15, Sigma Central Mall, Vasanth Nagar, Cuminingham Road, Banglore"
+          />
         </aside>
       </div>
     </>
