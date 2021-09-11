@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 // components
 import MenuCategory from "./MenuCategory";
@@ -11,7 +11,7 @@ const MenuListContainer = (props) => {
           name="Recommended"
           items={["", ""]}
           onClickHandler={props.onClickHandler}
-          isActive={selected === "Recommended"}
+          isActive={props.selected === "Recommended"}
         />
       </div>
     </>

@@ -15,7 +15,7 @@ const RestaurantLayout = (props) => {
         <>
             {" "}
             <RestaurantNavbar />
-            <div classname="container mx-auto px=4 lg:px=20">
+            <div classname="container px=4 lg:px=10">
                 <ImageGrid
                   images={[ 
                       "https://b.zmtcdn.com/data/pictures/chains/3/10013/34600614f8ed8b2f722c30442fd0fd9e_o2_featured_v2.jpg",
@@ -31,7 +31,7 @@ const RestaurantLayout = (props) => {
                     cuisine="North Indian, Fast Food, Chinese, Street Food"
                     address="Basavanagundi, banglore"
                 />
-                <div className="my-4 flex flex-wrap gap-3">
+                <div className="my-4 flex flex-wrap gap-4">
                     <InfoButtons isActive>
                         <TiStarOutline /> Add Review
                     </InfoButtons>
