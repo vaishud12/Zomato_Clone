@@ -16,7 +16,7 @@ const OrderOnline = () => {
                     <MenuListContainer />
                 </aside>
 
-                <div classname="w-full px-3 md:w-3/4">
+                <div className="w-full px-3 md:w-3/4">
                     <div className="pl-3">
                         <h2 className="text-xl font-semibold">Order online</h2>
                         <h4 className="flex items-center gap-2 font-light text-gray-500">
@@ -29,13 +29,13 @@ const OrderOnline = () => {
                            title="Recommended"
                            items={[
                                {
-                                   price: "1000",
-                                   rating: 3,
-                                   description:
-                                     "1kg contains 6 pcs fresh chicken are marinated in a mixture of freshly ground BBK spices & layered with long grain basmati rice in the handi and slow cooked in the sealed handi. Each biryani order is individually cooked in hand made clay handi and served to you in the same earthenware.",
-                                   title: "yummy Food",
-                                   image:
-                                     "https://b.zmtcdn.com/data/dish_photos/8f8/34063a109d615f3a1282c8488cc038f8.jpg?fit=around|130:130&crop=130:130;*,*"
+                                  price: "1000",
+                                  rating: 3,
+                                  description:
+                                    "1kg contains 6 pcs fresh chicken are marinated in a mixture of freshly ground BBK spices & layered with long grain basmati rice in the handi and slow cooked in the sealed handi. Each biryani order is individually cooked in hand made clay handi and served to you in the same earthenware.",
+                                  title: "yummy Food",
+                                  image:
+                                    "https://b.zmtcdn.com/data/dish_photos/8f8/34063a109d615f3a1282c8488cc038f8.jpg?"
                                },
                            ]}
                         />
