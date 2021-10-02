@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { IoMdArrowDropright } from "react-icons/io";
 import Slider from "react-slick";
+import { useSelector, useDispatch } from "react-redux";
 import ReactStars from "react-rating-stars-component";
 
 // components
@@ -11,7 +12,13 @@ import { NextArrow, PrevArrow } from "../../components/CarousalArrow";
 import ReviewCard from "../../components/restaurant/Reviews/reviewCard";
 import Mapview from "../../components/restaurant/Mapview";
 
+import { getImage } from "../../Redux/Reducer/Image/Image.action";
+import { getReviews } from "../../Redux/Reducer/Reviews/review.action";
+
 const Overview = () => {
+  const [menuImage, setMenuImages] = useState({ images: [] });
+  const [Reviews, setReviewss] = useState([]);
+
   const { id } = useParams();
 
   const settings = {
@@ -51,8 +58,31 @@ const Overview = () => {
     ],
   };
 
+  const reduxState = useSelector(
+    (globalStore) => globalStore.restaurant.selectedRestaurant.restaurant
+  );
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (reduxState) {
+      dispatch(getImage(reduxState?.menuImage)).then((data) => {
+        const images = [];
+        data.payload.image.images.map(({ location }) => images.push(location));
+        setMenuImages(images);
+      });
+      dispatch(getReviews(reduxState?._id)).then((data) =>
+        setReviewss(data.payload.reviews)
+      );
+    }
+  }, []);
+
+
   const ratingChanged = (newRating) => {
     console.log(newRating);
+  };
+
+  const getLatLong = (mapAddress) => {
+    return mapAddress?.split(",").map((item) => parseFloat(item));
   };
 
   return (
@@ -82,19 +112,22 @@ const Overview = () => {
           </div>
           <h4 className="text-lg font-medium my-4">Cuisines</h4>
           <div className="flex flex-wrap gap-2">
-            <span className="border border-gray-600 text-blue-600 px-2 py-1 rounded-full">
-              Street Food
-            </span>
-            <span className="border border-gray-600 text-blue-600 px-2 py-1 rounded-full">
-              Street Food
-            </span>
-            <span className="border border-gray-600 text-blue-600 px-2 py-1 rounded-full">
-              Street Food
-            </span>
+            {reduxState?.cuisine.map((data) => (
+              <span className="border border-gray-600 text-blue-600 px-2 py-1 rounded-full">
+                {data}
+              </span>
+            //   <span className="border border-gray-600 text-blue-600 px-2 py-1 rounded-full">
+            //   Street Food
+            // </span>
+            // <span className="border border-gray-600 text-blue-600 px-2 py-1 rounded-full">
+            //   Street Food
+            // </span>
+            
+            ))}
           </div>
           <div className="my-4">
             <h4 className="text-lg font-medium">Average Cost</h4>
-            <h6>₹100 for one order (approx.)</h6>
+            <h6>₹{reduxState?.averageCost}100 for one order (approx.)</h6>
             <small className="text-gray-500">
               Exclusive of applicable taxes and charges, if any
             </small>

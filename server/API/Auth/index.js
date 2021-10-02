@@ -7,7 +7,7 @@ import passport from "passport";
 import { UserModel } from "../../database/user";
 
 // validation
-import { validateSignup, ValidateSignin } from "../../validation/auth";
+import { ValidateSignup, ValidateSignin } from "../../validation/auth";
 
 const Router = express.Router();
 
@@ -22,7 +22,7 @@ Method  POST
 */
 Router.post("/signup", async (req, res) => {
     try {
-        await validateSignup(req.body.credentials);
+        await ValidateSignup(req.body.credentials);
 
         await UserModel.findByEmailAndPhone(req.body.credentials);
 
