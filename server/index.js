@@ -49,7 +49,7 @@ zomato.use("/user", User);
 
 zomato.get("/" , (req, res) => res.json({ message: "setup success" }));
 
-zomato.listen(4000, () =>
+zomato.listen(4001, () =>
   ConnectDB()
     .then(() => console.log("Server is running 🚀"))
     .catch(() =>
