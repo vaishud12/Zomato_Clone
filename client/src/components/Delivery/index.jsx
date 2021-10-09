@@ -3,7 +3,6 @@ import { useSelector } from "react-redux";
 
 // components
 import DeliveryCarousal from "./DeliveryCarousal";
-import Brand from "./Brand";
 import RestaurantCard from "../RestaurantCard";
 
 const Delivery = () => {
@@ -16,8 +15,8 @@ const Delivery = () => {
   useEffect(() => {
     reduxState.restaurants && setRestaurantList(reduxState.restaurants);
   }, [reduxState.restaurants]);
-
-
+  console.log({ restaurantList })
+  console.log({ reduxState })
   //   {
   //     _id: "123456",
   //     photos: [

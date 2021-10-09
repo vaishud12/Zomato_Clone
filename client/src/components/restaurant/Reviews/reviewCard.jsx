@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState,useEffect }from "react";
 import { TiStarFullOutline } from "react-icons/ti";
 import { useDispatch } from "react-redux";
 import dayjs from "dayjs";
@@ -9,11 +9,11 @@ const ReviewCard = (props) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getUser(props.user)).then((data) =>
-      setUser(data.payload.user.fullname)
+    dispatch(getUser(props?.user)).then((data) =>
+      setUser(data.payload.user?.fullname)
     );
   }, []);
-
+  
   return (
     <>
       <div className="my-3 flex flex-col gap-3">

@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import { TiStarOutline } from "react-icons/ti";
 import { RiDirectionLine, RiShareForwardLine } from "react-icons/ri";
 import { BiBookmarkPlus } from "react-icons/bi";
 
+import { getImage } from "../Redux/Reducer/Image/Image.action";
+
+  
 //components
 import RestaurantNavbar from "../components/Navbar/restaurantNavbar";
 import ImageGrid from "../components/restaurant/ImageGrid";
@@ -12,6 +17,21 @@ import TabContainer from "../components/restaurant/Tabs";
 import CartContainer from "../components/Cart/CartContainer";
 
 const RestaurantLayout = (props) => {
+    const [restaurant, setRestaurant] = useState({
+        images: [],
+        name: "",
+        cuising: "",
+        address: "",
+      });
+      const { id } = useParams();
+      const dispatch = useDispatch();
+    
+    //   useEffect(() => {
+    //     dispatch(getImage(data.payload.restaurant.photos)).then((data) =>
+    //     setRestaurant((prev) => ({ ...prev, ...data.payload.image }))
+    //   );
+    // });
+
     return (
         <>
             {" "}

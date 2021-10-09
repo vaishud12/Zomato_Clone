@@ -49,10 +49,12 @@ zomato.use("/user", User);
 
 zomato.get("/" , (req, res) => res.json({ message: "setup success" }));
 
-zomato.listen(4001, () =>
+zomato.listen(4000, () =>
   ConnectDB()
     .then(() => console.log("Server is running 🚀"))
     .catch(() =>
       console.log("Server is running, but database connection failed... ")
     )
 );
+
+//mongodb+srv://vaishnaavi:Vaishnavi@zomato-master.gwnsy.mongodb.net/zomato?retryWrites=true&w=majoritypps.

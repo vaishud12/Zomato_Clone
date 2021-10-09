@@ -62,6 +62,7 @@ const Overview = () => {
     (globalStore) => globalStore.restaurant.selectedRestaurant.restaurant
   );
   const dispatch = useDispatch();
+  console.log({reduxState});
 
   useEffect(() => {
     if (reduxState) {
@@ -76,6 +77,7 @@ const Overview = () => {
     }
   }, []);
 
+  console.log({Reviews});
 
   const ratingChanged = (newRating) => {
     console.log(newRating);
@@ -189,9 +191,12 @@ const Overview = () => {
             />
           </div>
           <div className="my-4 flex flex-col gap-4">
-            <ReviewCard />
-            <ReviewCard />
-            <ReviewCard />
+              {
+                Reviews.map((reviewDetails) => (
+                  <ReviewCard {...reviewDetails} />
+
+                ))
+              }
           </div>
         </div>      
         <aside
