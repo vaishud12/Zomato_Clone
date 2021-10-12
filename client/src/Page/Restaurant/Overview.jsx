@@ -103,14 +103,7 @@ const Overview = () => {
             </Link>
           </div>
           <div className="flex flex-wrap gap-3">
-            <MenuCollection
-              menuTitle="Menu"
-              pages="3"
-              image={[
-                "https://b.zmtcdn.com/data/menus/428/18582428/93084de4c642df3dec0b5b4fdccefaad.jpg",
-                "https://b.zmtcdn.com/data/menus/278/18629278/41530836ad2d603888610977507c5f30.jpg"
-              ]}
-            />
+            <MenuCollection menuTitle="Menu" pages="3" image={menuImage} />
           </div>
           <h4 className="text-lg font-medium my-4">Cuisines</h4>
           <div className="flex flex-wrap gap-2">
@@ -118,13 +111,6 @@ const Overview = () => {
               <span className="border border-gray-600 text-blue-600 px-2 py-1 rounded-full">
                 {data}
               </span>
-            //   <span className="border border-gray-600 text-blue-600 px-2 py-1 rounded-full">
-            //   Street Food
-            // </span>
-            // <span className="border border-gray-600 text-blue-600 px-2 py-1 rounded-full">
-            //   Street Food
-            // </span>
-            
             ))}
           </div>
           <div className="my-4">
@@ -173,41 +159,35 @@ const Overview = () => {
             <h4 className="text-lg font-medium">
               Rate your delivery experience
             </h4>
-            <div>
-              <ReactStars
-                count={5}
-                onChange={ratingChanged}
-                size={24}
-                activeColor="#ffd700"
-              />
-            </div>
+            <ReactStars
+              count={5}
+              onChange={ratingChanged}
+              size={24}
+              activeColor="#ffd700"
+            />
+            {Reviews.map((reviewData) => (
+              <ReviewCard {...reviewData} />
+            ))}
           </div>
           <div className="my-4 w-full md:hidden flex flex-col gap-4">
             <Mapview 
-              title="Mumbai Xpress"
-              phno="+918805270556"
-              mapLocation={[12.988134202889283, 77.59405893120281]}
-              address="15, Sigma Central Mall, Vasanth Nagar, Cuminingham Road, Banglore"
+              title={reduxState?.name}
+              phno={`+91${reduxState?.contactNumber}`}
+              mapLocation={getLatLong(reduxState?.mapLocation)}
+              address={reduxState?.address}
             />
           </div>
-          <div className="my-4 flex flex-col gap-4">
-              {
-                Reviews.map((reviewDetails) => (
-                  <ReviewCard {...reviewDetails} />
-
-                ))
-              }
-          </div>
+          <div className="my-4 flex flex-col gap-4"></div>
         </div>      
         <aside
           style={{ height: "fit-content" }}
           className="hidden md:flex md:w-4/12 sticky rounded-xl top-2 bg-white p-3 shadow-md flex flex-col gap-4"
         >
           <Mapview 
-            title="Mumbai Xpress"
-            phno="+918805270556"
-            mapLocation={[12.988134202889283, 77.59405893120281]}
-            address="15, Sigma Central Mall, Vasanth Nagar, Cuminingham Road, Banglore"
+            title={reduxState?.name}
+            phno={`+91${reduxState?.contactNumber}`}
+            mapLocation={getLatLong(reduxState?.mapLocation)}
+            address={reduxState?.address}
           />
         </aside>
       </div>
