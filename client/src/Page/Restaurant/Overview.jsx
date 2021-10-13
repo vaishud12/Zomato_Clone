@@ -68,7 +68,7 @@ const Overview = () => {
     if (reduxState) {
       dispatch(getImage(reduxState?.menuImage)).then((data) => {
         const images = [];
-        data.payload.image.images.map(({ location }) => images.push(location));
+        data.payload?.image?.images.map(({ location }) => images.push(location));
         setMenuImages(images);
       });
       dispatch(getReviews(reduxState?._id)).then((data) =>
@@ -77,7 +77,7 @@ const Overview = () => {
     }
   }, []);
 
-  console.log({Reviews});
+  console.log({setMenuImages});
 
   const ratingChanged = (newRating) => {
     console.log(newRating);
