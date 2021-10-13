@@ -4,18 +4,19 @@ import React, { useState } from "react";
 import MenuCategory from "./MenuCategory";
 
 const MenuListContainer = (props) => {
-  return (
-    <>
-      <div className="w-full flex flex-col gap-3">
-        <MenuCategory
-          name={props.name}
-          items={props.items}
-          onClickHandler={props.onClickHandler}
-          isActive={props.selected === props.name}
-        />
-      </div>
-    </>
-  );
-};
-
-export default MenuListContainer;
+  console.log(props)
+      return (
+          <>
+              <div className="w-full flex flex-col gap-3">
+                  <MenuCategory 
+                      name={props.name}
+                      onClickHandler={props.onClickHandler}
+                      isActive={props.selected === props.name } 
+                      length={props.items.length}
+                  />
+              </div>   
+          </>
+      )
+  }
+  
+  export default MenuListContainer;

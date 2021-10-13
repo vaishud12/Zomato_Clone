@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { AiOutlineCompass } from "react-icons/ai";
-import { BiTimeFive } from "react-icons/bi";
+import { RiCompass3Line } from "react-icons/ri";
+import { MdAccessTime } from "react-icons/md";
  
 // components
 import FloatMenuBtn from "../../components/restaurant/Order-Online/FloatMenuBtn";
@@ -9,69 +9,62 @@ import MenuListContainer from "../../components/restaurant/Order-Online/MenuList
 import FoodList from "../../components/restaurant/Order-Online/FoodList";
 
 // redux actions
-import { getFoodList } from "../../Redux/Reducer/Food/Food.action";
+import { getFoodList, getFood } from "../../Redux/Reducer/Food/Food.action";
 import { addCart } from "../../Redux/Reducer/Cart/Cart.action";
 
 
-const OrderOnline = () => {
-    const [menu, setMenu] = useState([]);
-    const [selected, setSelected] = useState("");
-  
-    const onClickHandler = (e) => {
-      if (e.target.id) {
-        setSelected(e.target.id);
-      }
-      return;
-    };
-  
-    const reduxState = useSelector(
-      (globalStore) => globalStore.restaurant.selectedRestaurant.restaurant
-    );
-    const dispatch = useDispatch();
-      console.log("11",{reduxState});
-    useEffect(() => {
-      reduxState &&
-        dispatch(getFoodList(reduxState.menu)).then((data) =>
-          setMenu(data.payload.menus.menus)
-        );
-    }, [reduxState]);
-  
-    return (
-        <>
-            <div className="w-full h-screen flex ">
-                <aside className="hidden md:flex flex-col gap-3 border-r overflow-y-scroll border-gray-200 h-screen w-1/4">
-                   {menu.map((item) => (
-                      <MenuListContainer
-                        {...item}
-                        key={item._id}
-                        onClickHandler={onClickHandler}
-                        selected={selected}
-                    />
-                ))}
+const OrderOnline = (props) => {
+  const [menu, setMenu] = useState([]);
+  const [selected, setSelected] = useState("");
 
-                </aside>
+  const onClickHandler = (e) => {
+    if (e.target.id) {
+      setSelected(e.target.id);
+    }
+    return;
+  };
+  const reduxState = useSelector(
+    (globalStore) => globalStore.restaurant.selectedRestaurant.restaurant
+  );
 
-                <div className="w-full px-3 md:w-3/4">
-                    <div className="pl-3">
-                        <h2 className="text-xl font-semibold">Order online</h2>
-                        <h4 className="flex items-center gap-2 font-light text-gray-500">
-                            <AiOutlineCompass /> Live Track Your Order | <BiTimeFive /> 45 min
-                        </h4>
-                    </div>
-                    
-                    <section className="flex h-screen overflow-y scroll flex col gap-3 md:gap-5">
-                      {menu.map((item) => (
-                        <FoodList key={item._id} {...item} />
-                    ))}
-                        
-                    </section>
-                </div>
+  const dispatch = useDispatch();
 
-            </div>
+  useEffect(() => {
+    reduxState &&
+      dispatch(getFoodList(reduxState.menu)).then((data) =>
+        setMenu(data.payload.menus.menus)
+      );
+  }, [reduxState]);
 
-        <FloatMenuBtn />
-        </>
-    );
+  return (
+    <>
+      <div className="w-full h-screen flex">
+        <aside className="hidden md:flex mr-3 flex-col gap-3 border-r-2 border-gray-300 overflow-y-scroll h-screen w-1/4">
+          {menu.map((item) => (
+            <MenuListContainer
+              {...item}
+              key={item._id}
+              onClickHandler={onClickHandler}
+              selected={selected}
+            />
+          ))}
+        </aside>
+        <div className="w-full  px-3 md:w-3/4">
+          <h2 className="text-xl font-semibold">Order Online</h2>
+          <h4 className="flex items-center gap-2 font-light text-gray-500">
+            <RiCompass3Line /> Live track your order | <MdAccessTime /> 43 min
+          </h4>
+
+          <section className="h-screen overflow-y-scroll">
+            {menu.map((item) => (
+              <FoodList key={item._id} {...item} />
+            ))}
+          </section>
+        </div>
+      </div>
+      <FloatMenuBtn />
+    </>
+  );
 };
 
 export default OrderOnline;
