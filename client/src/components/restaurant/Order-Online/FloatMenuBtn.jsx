@@ -8,8 +8,9 @@ import MenuListContainer from "./MenuListContainer";
 const FloatMenuBtn = () => {
   const [isClicked, setIsClicked] = useState(false);
 
-  const toggleMenu = () => setIsClicked((prev) => !prev);
-
+  const toggleMenu = () => {
+    setIsClicked((prev) => !prev);
+  }
   return (
     <>
       <div className="fixed Z-30 w-8/12	flex flex-col gap-3 items-end bottom-2 right-2 md:hidden">

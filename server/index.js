@@ -28,7 +28,6 @@ import Payments from "./API/Payments";
 import ConnectDB from "./database/connection";
 
 const zomato = express();
-
 // application middlewaares
 zomato.use(express.json());
 zomato.use(express.urlencoded({ extended: false }));

@@ -11,8 +11,10 @@ const MenuCategory = (props) => {
               })}
               
           >
-              <h3 id={props.name} onClick={props.onClickHandler}>
-                  {props.name} ({props?.length})
+              <h3 id={props.name} 
+                  onClick={props.onClickHandler}
+                  className="text-lg">
+                    {props.name} ({props?.length})
               </h3>
           </div>
       </>

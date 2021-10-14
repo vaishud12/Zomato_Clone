@@ -7,13 +7,11 @@ import { MdAccessTime } from "react-icons/md";
 import FloatMenuBtn from "../../components/restaurant/Order-Online/FloatMenuBtn";
 import MenuListContainer from "../../components/restaurant/Order-Online/MenuListContainer";
 import FoodList from "../../components/restaurant/Order-Online/FoodList";
-
 // redux actions
-import { getFoodList, getFood } from "../../Redux/Reducer/Food/Food.action";
-import { addCart } from "../../Redux/Reducer/Cart/Cart.action";
+import { getFoodList } from "../../Redux/Reducer/Food/Food.action";
 
 
-const OrderOnline = (props) => {
+const OrderOnline = () => {
   const [menu, setMenu] = useState([]);
   const [selected, setSelected] = useState("");
 
@@ -31,11 +29,11 @@ const OrderOnline = (props) => {
 
   useEffect(() => {
     reduxState &&
-      dispatch(getFoodList(reduxState.menu)).then((data) =>
-        setMenu(data.payload.menus.menus)
+      dispatch(getFoodList(reduxState?.menus)).then((data) =>
+        setMenu(data.payload?.menus.menus)
       );
   }, [reduxState]);
-
+  
   return (
     <>
       <div className="w-full h-screen flex">

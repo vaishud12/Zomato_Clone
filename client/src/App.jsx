@@ -1,7 +1,7 @@
 import { Route, Redirect } from "react-router-dom";
 import axios from "axios";
 import { useDispatch } from "react-redux";
-import React, { useEffect } from "react";
+import React, {useEffect}  from "react";
 
 // HOC
 import HomeLayoutHOC from "./HOC/Home.Hoc";

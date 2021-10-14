@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import {
     IoMdArrowDropdown,
     IoMdArrowDropright,
@@ -89,6 +89,11 @@ const CartContainer = () => {
 
     const dispatch = useDispatch();
     const reduxState = useSelector((global) => global.cart.cart);
+
+    useEffect(() => {
+        dispatch(getCart()).then((data) => setCartData(data.payload) )
+    }, [])
+  
 
     const toggleCart = () => setIsOpen((prev) => !prev);
     const closeCart = () => setIsOpen(false);

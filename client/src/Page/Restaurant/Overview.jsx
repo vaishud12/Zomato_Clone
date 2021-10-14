@@ -68,16 +68,17 @@ const Overview = () => {
     if (reduxState) {
       dispatch(getImage(reduxState?.menuImage)).then((data) => {
         const images = [];
-        data.payload?.image?.images.map(({ location }) => images.push(location));
+        data.payload.image.images.map(({ location }) => images.push(location));
         setMenuImages(images);
+        console.log({menuImage});
       });
       dispatch(getReviews(reduxState?._id)).then((data) =>
         setReviewss(data.payload.reviews)
       );
     }
-  }, []);
+  }, [reduxState]);
 
-  console.log({setMenuImages});
+  
 
   const ratingChanged = (newRating) => {
     console.log(newRating);
