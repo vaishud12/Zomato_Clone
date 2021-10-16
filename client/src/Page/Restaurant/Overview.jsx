@@ -130,20 +130,20 @@ const Overview = () => {
                   title="tea"
                 />
                 <MenuSimilarRestaurantcard
-                  image="https://b.zmtcdn.com/data/pictures/chains/5/18711475/4be376adb66b75764946d00a7dcf9991_featured_v2.jpg?output-format=webp"
-                  title="tea"
+                  image="https://b.zmtcdn.com/data/pictures/chains/9/39699/04e884e4f24b43d39e60c9ad75c5a070_featured_v2.jpg"
+                  title="Hamover Icecream"
                 />
                 <MenuSimilarRestaurantcard
-                  image="https://b.zmtcdn.com/data/pictures/chains/5/18711475/4be376adb66b75764946d00a7dcf9991_featured_v2.jpg?output-format=webp"
-                  title="tea"
+                  image="https://b.zmtcdn.com/data/pictures/chains/3/36163/ea1a778453267459ff6a29a11d6b76af_featured_v2.jpg?output-format=webp"
+                  title="Apsara"
                 />
                 <MenuSimilarRestaurantcard
-                  image="https://b.zmtcdn.com/data/pictures/chains/5/18711475/4be376adb66b75764946d00a7dcf9991_featured_v2.jpg?output-format=webp"
-                  title="tea"
+                  image="https://b.zmtcdn.com/data/pictures/chains/7/19204697/52cfde9dfa2cb7c3e46ec377ed1a98fb_featured_v2.jpg?output-format=webp"
+                  title="Creambell"
                 />
                 <MenuSimilarRestaurantcard
-                  image="https://b.zmtcdn.com/data/pictures/chains/5/18711475/4be376adb66b75764946d00a7dcf9991_featured_v2.jpg?output-format=webp"
-                  title="tea"
+                  image="https://b.zmtcdn.com/data/pictures/chains/4/43344/463ebb4c057169308701e7c3d5633105_featured_v2.jpg?output-format=webp"
+                  title="starbucks Coffee"
                 />
                 <MenuSimilarRestaurantcard
                   image="https://b.zmtcdn.com/data/pictures/chains/5/18711475/4be376adb66b75764946d00a7dcf9991_featured_v2.jpg?output-format=webp"

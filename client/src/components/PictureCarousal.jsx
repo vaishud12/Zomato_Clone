@@ -11,6 +11,21 @@ const PictureCarousalCard = () => {
             alt="food"
             className="w-full h-full object-cover transition duration-700 ease-in-out rounded-lg"
           />
+          <img
+            src="https://b.zmtcdn.com/data/pictures/2/18503752/a1cd82498e16a143ecda57f57cb353b3.jpg?output-format=webp"
+            alt="hot bar"
+            className="w-full h-full object-cover transition duration-700 ease-in-out rounded-lg"
+          />
+          <img
+            src="https://b.zmtcdn.com/data/pictures/4/19935784/2d4bb6388ec1e464b9a79f6a8cba90ce.jpg?output-format=webp&fit=around|771.75:416.25&crop=771.75:416.25;*,*"
+            alt="newly Opened"
+            className="w-full h-full object-cover transition duration-700 ease-in-out rounded-lg"
+          />
+          <img
+            src="https://b.zmtcdn.com/data/pictures/2/18503752/a1cd82498e16a143ecda57f57cb353b3.jpg?output-format=webp"
+            alt="food"
+            className="w-full h-full object-cover transition duration-700 ease-in-out rounded-lg"
+          />
           <div
             className="w-full h-full absolute inset-0  rounded-lg"
             style={{

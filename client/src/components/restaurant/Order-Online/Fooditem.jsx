@@ -16,7 +16,7 @@ const FoodItem = (props) => {
   useEffect(() => {
     dispatch(getFood(props.id)).then((data) => {
       setFood(data.payload.foods);
-      dispatch(getImage(data.payload.foods?.photos)).then((data) => {
+      dispatch(getImage(data.payload.foods.photos)).then((data) => {
         const { images } = data.payload.image;
         images.length &&
           setFood((prev) => ({ ...prev, image: images[0].location }));
