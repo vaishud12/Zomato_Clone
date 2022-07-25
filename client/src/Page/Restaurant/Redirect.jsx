@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, {useEffect} from "react";
 import { useHistory, useParams } from "react-router-dom";
 
 const Redirect = () => {

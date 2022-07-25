@@ -10,7 +10,7 @@ import { getImage } from "../../Redux/Reducer/Image/Image.action";
 const Photos = () => {
   const [photos, setPhotos] = useState([]);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [CurrentImg, setCurrentImg] = useState(0);
+  const [CurrentImg] = useState(0);
 
   const reduxState = useSelector(
     (globalStore) => globalStore.restaurant.selectedRestaurant.restaurant

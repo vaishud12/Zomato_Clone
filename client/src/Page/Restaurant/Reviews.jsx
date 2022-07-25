@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 // components
 import ReviewCard from "../../components/restaurant/Reviews/reviewCard";
 import AddReviewCard from "../../components/restaurant/Reviews/AddReviewCard";
 
 const Reviews = () => {
-    const [reviews, setReviews] = useState(["", "", ""]);
+    const [reviews] = useState(["", "", ""]);
     return (
         <>
           <div className="w-full flex flex-col md:flex-row relative">

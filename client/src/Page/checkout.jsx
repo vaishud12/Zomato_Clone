@@ -6,12 +6,11 @@ import { useSelector, useDispatch } from "react-redux";
 import FoodItem from "../components/Cart/FoodItem";
 import AddressList from "../components/Checkout/AddressList";
 
-// reduxa action
-import { createOrder } from "../Redux/Reducer/Order/order.action";
+
 
 const Checkout = () => {
   const reduxStateCart = useSelector((global) => global.cart.cart);
-  const reduxStateUser = useSelector((global) => global.user.user.user);
+  // const reduxStateUser = useSelector((global) => global.user.user.user);
   const dispatch = useDispatch();
 
   const address = [
@@ -42,15 +41,17 @@ const Checkout = () => {
       image:
         "https://b.zmtcdn.com/web_assets/b40b97e677bc7b2ca77c58c61db266fe1603954218.png",
 
-      handler: () => {
-        alert("Payment Done");
-      },
-      prefill: {
-        name: reduxStateUser.fullname,
-        email: reduxStateUser.email,
-      },
-      theme: { color: "#e23744" },
-    };
+        handler: () => {
+          alert("Payment Done");
+        },
+        // prefill: {
+        //   name: reduxStateUser.fullname,
+        //   email: reduxStateUser.email,
+        // },
+        theme: { color: "#e23744" },
+      };
+  
+  
 
     let razorPay = new window.Razorpay(options);
     razorPay.open();

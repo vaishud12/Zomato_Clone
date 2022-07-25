@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import {
-    IoMdArrowDropdown,
+
     IoMdArrowDropright,
     IoMdArrowDropup
 } from "react-icons/io";
@@ -32,7 +32,9 @@ const CartSM = ({ toggle }) => {
                       <sub>(plus tax)</sub>
                   </h4>
                 </div>
-                <button className="flex items-center gap-1 bg-zomato-400 px-3 py-1 text-white rounded-lg">
+                <button 
+                   onClick={continueToCheckout}
+                   className="flex items-center gap-1 bg-zomato-400 px-3 py-1 text-white rounded-lg">
                    continue <IoMdArrowDropright />
                 </button>
             </div> 
@@ -85,7 +87,7 @@ const CartLg = ({ toggle }) => {
 
 const CartContainer = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const [cartData, setCartData] = useState([]);
+    const [carData, setCartData] = useState([]);
 
     const dispatch = useDispatch();
     const reduxState = useSelector((global) => global.cart.cart);

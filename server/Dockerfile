@@ -8,7 +8,7 @@ RUN npm i
 
 COPY . ./
 
-ENV MONGO_URL=mongodb+srv://vaishnavi:Vaishnavi@zomato-master.gwnsy.mongodb.net/zomato?retryWrites=true&w=majority
+ENV MONGO_URL=mongodb+srv://vaishnaavi:vaishnavi@zomato-master.gwnsy.mongodb.net/zomato?retryWrites=true&w=majority
 ENV GOOGLE_CLIENT_ID=483243251744-2leiqlf59mr4qtdpsu0ehv429i8kfmfo.apps.googleusercontent.com
 ENV GOOGLE_CLIENT_SECRET=HpW_9fHW2_27TgjLLc_JyE_B
 ENV AWS_S3_ACCESS_KEY=AKIA6QQABJ5GUTOYPNHJ
